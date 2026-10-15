@@ -1,0 +1,12 @@
+playwright
+psycopg[binary]
+fastapi
+uvicorn
+websockets
+typesense
+pypdf
+python-docx
+openpyxl
+xlrd
+2captcha-python
+google-genai

@@ -1,0 +1,197 @@
+/root/tender-dnl/dashboard.py:940: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+INFO:     Started server process [2162709]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8091 (Press CTRL+C to quit)
+INFO:     223.185.24.140:7104 - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44690 - "POST /api/job/download HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44704 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+download job: fixed MAX_PARALLEL=6
+download: starting 6 worker(s) for 1779 tenders (gap=150ms, extract=4 pool threads)
+download worker 1: opening browser session
+download worker 2: opening browser session
+download worker 4: opening browser session
+download worker 5: opening browser session
+download worker 6: opening browser session
+download worker 3: opening browser session
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_CoC_710712_1: closing-date anchor page 245/438 (stored 245)
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_RDTN_709554_2: closing-date anchor page 243/438 (stored 243)
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+opened 2026_TCMPF_708429_1 from list page 215 (2 fetches, 4.4s)
+2026_TCMPF_708429_1: 1 corrigendum(s) on detail page
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+opened 2026_RDTN_709554_2 from list page 240 (8 fetches, 5.6s)
+corrigendum 2026_TCMPF_708429_1 1: history saved, no document attached
+2026_TCMPF_708429_1: saved 0 corrigendum pdf(s)
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_DTP_710473_1: closing-date anchor page 221/438 (stored 283)
+lookup 2026_CoC_710712_1: not on closing list (anchor 245, window 235-255, 12 fetches, 5.9s)
+lookup 2026_RDTN_710470_1: closing-date anchor page 221/438 (stored 283)
+timings 2026_CoC_710712_1: lookup=5901ms/12f/miss total=5954ms
+failed 2026_CoC_710712_1: 2026_CoC_710712_1 is no longer on the closing list.
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_DTP_708647_1: closing-date anchor page 221/438 (stored 283)
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+Captcha image: /root/tender-dnl/temp/2026_RDTN_709554_2.png
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+opened 2026_RDTN_713138_1 from list page 247 (4 fetches, 2.2s)
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_DTP_708647_1: not on closing list (anchor 221, window 211-231, 21 fetches, 9.3s)
+lookup 2026_RDTN_710470_1: not on closing list (anchor 221, window 211-231, 21 fetches, 9.0s)
+lookup 2026_DTP_710473_1: not on closing list (anchor 221, window 211-231, 21 fetches, 9.2s)
+timings 2026_RDTN_710470_1: lookup=9057ms/21f/miss total=9083ms
+failed 2026_RDTN_710470_1: 2026_RDTN_710470_1 is no longer on the closing list.
+timings 2026_DTP_710473_1: lookup=9181ms/21f/miss total=9219ms
+failed 2026_DTP_710473_1: 2026_DTP_710473_1 is no longer on the closing list.
+timings 2026_DTP_708647_1: lookup=9335ms/21f/miss total=9381ms
+failed 2026_DTP_708647_1: 2026_DTP_708647_1 is no longer on the closing list.
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+Captcha image: /root/tender-dnl/temp/2026_RDTN_713138_1.png
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_TNPL_710681_1: closing-date anchor page 247/438 (stored 283)
+lookup 2026_TNMSC_703701_1: closing-date anchor page 247/438 (stored 283)
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_TNPL_712109_1: closing-date anchor page 247/438 (stored 283)
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+opened 2026_TNPL_710681_1 from list page 243 (13 fetches, 5.5s)
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_TNPL_712109_1: not on closing list (anchor 247, window 237-257, 15 fetches, 6.3s)
+lookup 2026_TNMSC_703701_1: not on closing list (anchor 247, window 237-257, 15 fetches, 6.4s)
+timings 2026_TNPL_712109_1: lookup=6317ms/15f/miss total=6373ms
+failed 2026_TNPL_712109_1: 2026_TNPL_712109_1 is no longer on the closing list.
+timings 2026_TNMSC_703701_1: lookup=6403ms/15f/miss total=6450ms
+failed 2026_TNMSC_703701_1: 2026_TNMSC_703701_1 is no longer on the closing list.
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+Captcha image: /root/tender-dnl/temp/2026_TNPL_710681_1.png
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_TNPL_713099_1: closing-date anchor page 249/438 (stored 283)
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_MAWS_709751_9: closing-date anchor page 249/438 (stored 284)
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_TNPL_713099_1: not on closing list (anchor 249, window 239-259, 15 fetches, 4.4s)
+timings 2026_TNPL_713099_1: lookup=4423ms/15f/miss total=4446ms
+failed 2026_TNPL_713099_1: 2026_TNPL_713099_1 is no longer on the closing list.
+lookup 2026_MAWS_709751_9: not on closing list (anchor 249, window 239-259, 15 fetches, 4.6s)
+timings 2026_MAWS_709751_9: lookup=4563ms/15f/miss total=4590ms
+failed 2026_MAWS_709751_9: 2026_MAWS_709751_9 is no longer on the closing list.
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_RDTN_709554_3: closing-date anchor page 249/438 (stored 284)
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_RDTN_709733_1: closing-date anchor page 249/438 (stored 284)
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_RDTN_709554_3: not on closing list (anchor 249, window 239-259, 15 fetches, 4.0s)
+timings 2026_RDTN_709554_3: lookup=4027ms/15f/miss total=4070ms
+failed 2026_RDTN_709554_3: 2026_RDTN_709554_3 is no longer on the closing list.
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+opened 2026_RDTN_709733_1 from list page 244 (12 fetches, 4.2s)
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+Captcha image: /root/tender-dnl/temp/2026_RDTN_709733_1.png
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_RDTN_712084_1: closing-date anchor page 249/438 (stored 284)
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+lookup 2026_RDTN_712084_1: not on closing list (anchor 249, window 239-259, 15 fetches, 4.1s)
+timings 2026_RDTN_712084_1: lookup=4081ms/15f/miss total=4113ms
+failed 2026_RDTN_712084_1: 2026_RDTN_712084_1 is no longer on the closing list.
+INFO:     223.185.24.140:23949 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     223.185.24.140:10367 - "GET /api/usage HTTP/1.1" 200 OK
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2162709]

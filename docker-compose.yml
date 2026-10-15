@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: tender
+      POSTGRES_PASSWORD: tender
+      POSTGRES_DB: tenders
+    ports:
+      - "5432:5432"
+    volumes:
+      - tender-pg:/var/lib/postgresql/data
+
+  typesense:
+    image: typesense/typesense:27.1
+    environment:
+      TYPESENSE_DATA_DIR: /data
+      TYPESENSE_API_KEY: ${TYPESENSE_API_KEY}
+      TYPESENSE_ENABLE_CORS: "true"
+    ports:
+      - "8108:8108"
+    volumes:
+      - tender-typesense:/data
+
+volumes:
+  tender-pg:
+  tender-typesense:

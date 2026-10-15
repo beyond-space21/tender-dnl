@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tender-dnl — information map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #13221c;
+    --ink-soft: #2a3d34;
+    --muted: #5c6f66;
+    --line: #c9d4ce;
+    --paper: #f3f6f4;
+    --panel: #ffffff;
+    --accent: #0d6e56;
+    --accent-soft: #d8efe7;
+    --warn: #8a5a00;
+    --warn-soft: #fff1d6;
+    --doc: #1e4d7b;
+    --doc-soft: #e4eef7;
+    --corr: #7a2e12;
+    --corr-soft: #f8e6df;
+    --meta: #4a3f6b;
+    --meta-soft: #ebe7f4;
+    --shadow: 0 1px 0 rgba(19, 34, 28, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 500px at 10% -10%, #dff0e8 0%, transparent 55%),
+      radial-gradient(900px 400px at 100% 0%, #e7eef5 0%, transparent 50%),
+      linear-gradient(180deg, #eef3f0 0%, var(--paper) 28%, var(--paper) 100%);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+  }
+
+  /* —— hero —— */
+  .hero {
+    padding: 2.4rem 0 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.6rem;
+  }
+  .back {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .stamp {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .brand {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+  .lede {
+    margin-top: 0.75rem;
+    max-width: 36rem;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+  }
+  .cta-row {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+  .chip b { color: var(--ink); font-weight: 600; }
+
+  /* —— sections —— */
+  section {
+    padding: 2.25rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  section:last-of-type { border-bottom: 0; }
+  h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  .section-lede {
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 40rem;
+    margin-bottom: 1.35rem;
+  }
+
+  /* —— flow —— */
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.45rem;
+    align-items: stretch;
+  }
+  @media (max-width: 900px) {
+    .flow { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .flow { grid-template-columns: 1fr; }
+  }
+  .stage {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 0.85rem 0.75rem;
+    min-height: 7.5rem;
+    position: relative;
+  }
+  .stage::after {
+    content: "→";
+    position: absolute;
+    right: -0.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 0.85rem;
+    z-index: 1;
+    background: var(--paper);
+    width: 0.9rem;
+    text-align: center;
+  }
+  .stage:last-child::after,
+  .flow .stage:nth-child(7)::after { content: none; }
+  @media (max-width: 900px) {
+    .stage::after { content: none; }
+  }
+  .stage .n {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+  .stage h3 {
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin: 0.25rem 0 0.35rem;
+  }
+  .stage p {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  /* —— doc grid —— */
+  .doc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+  @media (max-width: 720px) {
+    .doc-grid { grid-template-columns: 1fr; }
+  }
+  .doc {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 1rem 1.05rem 1.1rem;
+  }
+  .doc .tag {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.4rem;
+    margin-bottom: 0.45rem;
+  }
+  .tag.zip { background: var(--doc-soft); color: var(--doc); }
+  .tag.corr { background: var(--corr-soft); color: var(--corr); }
+  .tag.meta { background: var(--meta-soft); color: var(--meta); }
+  .tag.page { background: var(--accent-soft); color: var(--accent); }
+  .doc h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .doc p {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.65rem;
+  }
+  .doc ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .doc li {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.5rem;
+    background: var(--paper);
+    border-left: 3px solid var(--line);
+    font-family: "IBM Plex Mono", monospace;
+  }
+  .doc.zip li { border-left-color: var(--doc); }
+  .doc.corr li { border-left-color: var(--corr); }
+  .doc.meta li { border-left-color: var(--meta); }
+  .doc .note {
+    margin-top: 0.65rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* —— sources table —— */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    font-size: 0.86rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    font-weight: 600;
+    background: #e9efeb;
+  }
+  tr:last-child td { border-bottom: 0; }
+  .src {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.1rem 0.35rem;
+    margin: 0.1rem 0.15rem 0.1rem 0;
+    white-space: nowrap;
+  }
+  .src.page { background: var(--accent-soft); color: var(--accent); }
+  .src.boq { background: var(--warn-soft); color: var(--warn); }
+  .src.llm { background: var(--meta-soft); color: var(--meta); }
+  .src.corr { background: var(--corr-soft); color: var(--corr); }
+  .src.list { background: var(--doc-soft); color: var(--doc); }
+  code {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.8em;
+    background: var(--paper);
+    padding: 0.05rem 0.25rem;
+  }
+
+  /* —— disk tree —— */
+  .layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 800px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+  .tree {
+    background: var(--ink);
+    color: #d7e4dd;
+    padding: 1.1rem 1.15rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    overflow-x: auto;
+  }
+  .tree .dir { color: #7dceb4; }
+  .tree .file { color: #e8f0eb; }
+  .tree .cmt { color: #7a9087; }
+  .legend {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 1rem 1.05rem;
+  }
+  .legend h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.65rem;
+  }
+  .legend ol {
+    margin-left: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+  }
+  .legend li strong { color: var(--ink); }
+
+  /* —— jobs —— */
+  .jobs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+  @media (max-width: 800px) {
+    .jobs { grid-template-columns: 1fr; }
+  }
+  .job {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 0.9rem 1rem;
+  }
+  .job h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+  .job p {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .job .out {
+    margin-top: 0.55rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+  }
+
+  footer {
+    padding: 1.5rem 0 2.5rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <a class="back" href="/">← Operations dashboard</a>
+        <span class="stamp">GePNIC · tntenders.gov.in</span>
+      </div>
+      <div class="brand">tender-dnl</div>
+      <p class="lede">
+        Information map of every document and field collected from the
+        Tamil Nadu closing list through packet download, corrigendum refresh,
+        and field extraction.
+      </p>
+      <div class="cta-row">
+        <span class="chip"><b>~295</b> packets on disk</span>
+        <span class="chip"><b>ZIP</b> NIT · docs · BoQ</span>
+        <span class="chip"><b>Corrigendum</b> PDF + history</span>
+        <span class="chip"><b>Fields</b> page · BoQ · Gemini</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="flow">
+      <h2>How information moves</h2>
+      <p class="section-lede">
+        Seven stages from the public portal to the local catalog.
+        Each stage writes a durable artifact.
+      </p>
+      <div class="flow" role="list">
+        <article class="stage" role="listitem">
+          <div class="n">01</div>
+          <h3>Closing list</h3>
+          <p>14-day GePNIC list · tender id, title, org, dates, page #</p>
+        </article>
+        <article class="stage" role="listitem">
+          <div class="n">02</div>
+          <h3>Detail page</h3>
+          <p>Critical dates, fee/EMD, docs table, corrigendum list</p>
+        </article>
+        <article class="stage" role="listitem">
+          <div class="n">03</div>
+          <h3>ZIP packet</h3>
+          <p>Captcha-gated download · notice, PDFs, BoQ xls</p>
+        </article>
+        <article class="stage" role="listitem">
+          <div class="n">04</div>
+          <h3>Corrigendum</h3>
+          <p>History popup · revised dates · optional PDF</p>
+        </article>
+        <article class="stage" role="listitem">
+          <div class="n">05</div>
+          <h3>Extract</h3>
+          <p>Page + BoQ parse · Gemini on PDFs · merge</p>
+        </article>
+        <article class="stage" role="listitem">
+          <div class="n">06</div>
+          <h3>Stores</h3>
+          <p>Postgres catalog · Typesense file text · disk</p>
+        </article>
+        <article class="stage" role="listitem">
+          <div class="n">07</div>
+          <h3>Dashboard</h3>
+          <p>Cards, search, export, corrigendum change view</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="documents">
+      <h2>Documents we collect</h2>
+      <p class="section-lede">
+        Two sources: the captcha ZIP (main packet) and the corrigendum history
+        popup (when a corrigendum exists).
+      </p>
+      <div class="doc-grid">
+        <article class="doc zip">
+          <span class="tag zip">From ZIP</span>
+          <h3>Tender notice (NIT)</h3>
+          <p>Official notice from the NIT documents table on the detail page.</p>
+          <ul>
+            <li>Tendernotice_1.pdf</li>
+            <li>classified → files.tender_notice</li>
+          </ul>
+          <p class="note">Matched by Document Name from the NIT table.</p>
+        </article>
+
+        <article class="doc zip">
+          <span class="tag zip">From ZIP</span>
+          <h3>Tender / work-item PDFs</h3>
+          <p>Technical bid, price bid, conditions, schedules, and other typed work-item documents.</p>
+          <ul>
+            <li>TB.pdf · PB.pdf · TenderDocument.pdf</li>
+            <li>TenderCondition.pdf · *schedule*.pdf</li>
+            <li>classified → files.tender_document</li>
+          </ul>
+          <p class="note">Names vary by department; type comes from the Work Item Documents table.</p>
+        </article>
+
+        <article class="doc zip">
+          <span class="tag zip">From ZIP</span>
+          <h3>Bill of Quantities</h3>
+          <p>Excel BoQ used for estimated value and work name when the page is thin.</p>
+          <ul>
+            <li>BOQ_&lt;id&gt;.xls / .xlsx</li>
+            <li>classified → files.boq</li>
+          </ul>
+          <p class="note">Parsed deterministically (no LLM) for item count and totals.</p>
+        </article>
+
+        <article class="doc corr">
+          <span class="tag corr">Corrigendum path</span>
+          <h3>Corrigendum PDF + history</h3>
+          <p>Pulled from “View Corrigendum History”, not from the ZIP.</p>
+          <ul>
+            <li>corrigendum.pdf (when Document Name is set)</li>
+            <li>history.html · history.json</li>
+            <li>metadata.json · pdf_sha256</li>
+          </ul>
+          <p class="note">Fee-type corrigenda often have no PDF (<code>pdf_missing</code>); history dates are still kept.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="fields">
+      <h2>Structured fields — by source</h2>
+      <p class="section-lede">
+        Final <code>details.fields</code> merges sources with precedence:
+        page/BoQ beat Gemini; a later corrigendum overlays only what it changes.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Sources</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>tender_id</code>, title, organisation</td>
+            <td><span class="src list">list</span><span class="src page">page</span></td>
+            <td>List row first; detail page refreshes title/org chain</td>
+          </tr>
+          <tr>
+            <td><code>published_at</code>, <code>closing_at</code>, <code>opening_at</code></td>
+            <td><span class="src list">list</span><span class="src page">page</span><span class="src corr">corr</span></td>
+            <td>Critical dates; corrigendum history can revise closing/opening</td>
+          </tr>
+          <tr>
+            <td>Pre-bid meeting date / place</td>
+            <td><span class="src page">page</span></td>
+            <td>From detail Critical Dates / place fields</td>
+          </tr>
+          <tr>
+            <td><code>tender_fee_inr</code>, <code>emd_inr</code></td>
+            <td><span class="src page">page</span><span class="src llm">llm</span><span class="src corr">corr</span></td>
+            <td>Page preferred; Gemini fills gaps; corr may override</td>
+          </tr>
+          <tr>
+            <td><code>work_value_inr</code></td>
+            <td><span class="src page">page</span><span class="src boq">boq</span><span class="src llm">llm</span></td>
+            <td>Tender value → BoQ estimated total → Gemini estimate</td>
+          </tr>
+          <tr>
+            <td><code>eligibility</code>, <code>eligibility_percent</code></td>
+            <td><span class="src llm">llm</span><span class="src page">page</span></td>
+            <td>Mostly PDF-only; page tenderer class as fallback</td>
+          </tr>
+          <tr>
+            <td><code>scope_of_work</code> / work description</td>
+            <td><span class="src llm">llm</span><span class="src page">page</span></td>
+            <td>Gemini summary from notice PDFs when page is thin</td>
+          </tr>
+          <tr>
+            <td>Location, pincode, category, contract type, covers</td>
+            <td><span class="src page">page</span></td>
+            <td>Deterministic detail-page captions</td>
+          </tr>
+          <tr>
+            <td>Period of work, bid validity, inviting authority</td>
+            <td><span class="src page">page</span><span class="src boq">boq</span></td>
+            <td>Authority name also from BoQ header when present</td>
+          </tr>
+          <tr>
+            <td><code>has_corrigendum</code> + change list</td>
+            <td><span class="src corr">corr</span></td>
+            <td>History diffs + optional Gemini on corrigendum PDF</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="disk">
+      <h2>On-disk packet layout</h2>
+      <p class="section-lede">
+        One folder per tender under <code>TENDERS/&lt;id&gt;/</code>. The ZIP is
+        extracted flat; corrigenda live in a subfolder.
+      </p>
+      <div class="layout">
+        <pre class="tree"><span class="dir">TENDERS/2026_ORG_123456_1/</span>
+├── <span class="file">Tendernotice_1.pdf</span>          <span class="cmt"># NIT</span>
+├── <span class="file">TB.pdf</span> · <span class="file">PB.pdf</span>             <span class="cmt"># work-item docs</span>
+├── <span class="file">BOQ_850490.xls</span>             <span class="cmt"># bill of quantities</span>
+├── <span class="file">corrigenda.json</span>            <span class="cmt"># list snapshot</span>
+├── <span class="file">details.json</span>               <span class="cmt"># merged fields + files map</span>
+└── <span class="dir">corrigendum/</span>
+    └── <span class="dir">1_Date_Extension/</span>
+        ├── <span class="file">corrigendum.pdf</span>
+        ├── <span class="file">history.html</span>
+        ├── <span class="file">history.json</span>
+        └── <span class="file">metadata.json</span>         <span class="cmt"># sha256, dates</span></pre>
+        <div class="legend">
+          <h3>Also stored outside the folder</h3>
+          <ol>
+            <li><strong>PostgreSQL <code>tenders</code></strong> — catalog row, status, <code>details</code> JSONB, <code>corrigenda</code>, <code>timings</code>, <code>left_list_at</code></li>
+            <li><strong>Typesense <code>tender_files</code></strong> — extracted text from packet files for search</li>
+            <li><strong><code>temp/</code></strong> — working ZIP/captcha images during download</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="jobs">
+      <h2>Jobs that fill the map</h2>
+      <p class="section-lede">Each dashboard job writes a different slice of the information above.</p>
+      <div class="jobs">
+        <article class="job">
+          <h3>List pages</h3>
+          <p>Walk the closing list (incremental early-stop). Upserts seen tenders.</p>
+          <div class="out">→ list fields · list_page · list_sweep</div>
+        </article>
+        <article class="job">
+          <h3>Download new</h3>
+          <p>Open detail, ZIP via captcha session, corrigenda, extract fields.</p>
+          <div class="out">→ packet files · details · timings</div>
+        </article>
+        <article class="job">
+          <h3>Refresh corrigenda</h3>
+          <p>Re-check open downloads; SHA-256 compare PDFs; detect new releases.</p>
+          <div class="out">→ corrigendum/* · field overlays</div>
+        </article>
+        <article class="job">
+          <h3>Extract fields</h3>
+          <p>Rebuild details from disk (optional live page parse if missing).</p>
+          <div class="out">→ details.fields · status</div>
+        </article>
+        <article class="job">
+          <h3>Index files</h3>
+          <p>Push packet text into Typesense for full-text file search.</p>
+          <div class="out">→ tender_files collection</div>
+        </article>
+        <article class="job">
+          <h3>Export</h3>
+          <p>Spreadsheet of merged fields + corrigendum flags for operators.</p>
+          <div class="out">→ xlsx / csv</div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      tender-dnl information map · served from <code>/static/information-map.html</code>
+      · packet counts approximate from local <code>TENDERS/</code>
+    </div>
+  </footer>
+</body>
+</html>

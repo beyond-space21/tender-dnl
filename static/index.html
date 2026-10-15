@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tender-dnl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;650&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/app.css?v=corr-map2">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <strong>tender-dnl</strong>
+        <span>TN GePNIC ops</span>
+      </div>
+    </div>
+    <p class="nav-label">Workspace</p>
+    <nav>
+      <button class="active" data-tab="overview" title="Overview">
+        <span class="nav-icon" aria-hidden="true">⌂</span><span class="nav-text">Overview</span>
+      </button>
+      <button data-tab="departments" title="Departments">
+        <span class="nav-icon" aria-hidden="true">▦</span><span class="nav-text">Departments</span>
+      </button>
+      <button data-tab="tenders" title="Tenders">
+        <span class="nav-icon" aria-hidden="true">☰</span><span class="nav-text">Tenders</span>
+      </button>
+      <button data-tab="files" title="Files">
+        <span class="nav-icon" aria-hidden="true">⌕</span><span class="nav-text">Files</span>
+      </button>
+      <button data-tab="usage" title="Usage">
+        <span class="nav-icon" aria-hidden="true">◔</span><span class="nav-text">Usage</span>
+      </button>
+      <a class="nav-link" href="/static/information-map.html" title="Information map">
+        <span class="nav-icon" aria-hidden="true">◫</span><span class="nav-text">Info map</span>
+      </a>
+    </nav>
+  </aside>
+  <div class="workspace">
+    <header class="top">
+      <div class="brand">
+        <h1>tender-dnl</h1>
+        <p>Closing list, packets, corrigenda, and search</p>
+      </div>
+      <div class="top-status">
+        <button type="button" id="job-chip" class="job-chip" title="Open Overview">
+          <span id="job-chip-phase">idle</span>
+          <span id="job-chip-progress"></span>
+        </button>
+        <div id="live" class="live">Connecting…</div>
+      </div>
+    </header>
+    <main>
+      <section id="overview" class="panel active">
+        <div class="stats" id="stats"></div>
+        <section class="card job">
+          <div class="card-head">
+            <h2>Fetch and index</h2>
+            <p id="job-phase"></p>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div id="job-progress" class="progress-fill"></div>
+          </div>
+          <div class="actions">
+            <button id="list" type="button">List pages</button>
+            <button id="download" type="button">Download new</button>
+            <button id="extract" type="button">Extract fields</button>
+            <button id="corr-refresh" type="button">Refresh corrigenda</button>
+            <button id="index" type="button">Index files</button>
+            <button id="export" type="button" class="secondary">Export xlsx</button>
+            <button id="stop" type="button" class="secondary">Stop</button>
+          </div>
+          <p id="job-detail"></p>
+        </section>
+      </section>
+      <section id="departments" class="panel">
+        <div id="dept-list" class="dept-pane">
+          <div class="search-bar">
+            <input id="dept-filter" type="search" placeholder="Filter departments" autocomplete="off">
+          </div>
+          <p id="dept-meta" class="muted"></p>
+          <div class="dept-grid" id="dept-grid"></div>
+        </div>
+        <div id="dept-detail" class="dept-pane" hidden>
+          <div class="dept-toolbar">
+            <button type="button" class="secondary" id="dept-back">All departments</button>
+            <div>
+              <h2 id="dept-title"></h2>
+              <p id="dept-summary" class="muted"></p>
+            </div>
+          </div>
+          <div class="filters">
+            <label>Stage
+              <select id="dept-lifecycle">
+                <option value="">All</option>
+                <option value="open">Open</option>
+                <option value="closing_soon">Closing soon</option>
+                <option value="expired">Expired</option>
+              </select>
+            </label>
+          </div>
+          <div class="layout">
+            <section class="card table-card">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tender</th>
+                    <th>Published</th>
+                    <th>Closing</th>
+                    <th>Opening</th>
+                    <th>Stage</th>
+                    <th>Packet</th>
+                  </tr>
+                </thead>
+                <tbody id="dept-rows"></tbody>
+              </table>
+            </section>
+            <section class="card files-card" id="dept-packet">
+              <h2>Packet</h2>
+              <p class="muted">Select a tender to see extracted files.</p>
+            </section>
+          </div>
+          <div class="pager">
+            <button id="dept-prev" type="button" class="secondary">Previous</button>
+            <span id="dept-pageinfo"></span>
+            <button id="dept-next" type="button" class="secondary">Next</button>
+          </div>
+        </div>
+      </section>
+      <section id="tenders" class="panel">
+        <div class="filters tender-filters">
+          <label class="filter-search">Search
+            <input id="tender-q" type="search" placeholder="ID, title, or organisation" autocomplete="off">
+          </label>
+          <label>Stage
+            <select id="lifecycle">
+              <option value="">All</option>
+              <option value="open">Open</option>
+              <option value="closing_soon">Closing soon</option>
+              <option value="expired">Expired</option>
+            </select>
+          </label>
+          <label>Packet
+            <select id="packet-status">
+              <option value="downloaded" selected>Downloaded</option>
+              <option value="extracted">Extracted</option>
+              <option value="failed">Failed</option>
+              <option value="">All</option>
+            </select>
+          </label>
+          <label>Closing
+            <select id="closing-preset">
+              <option value="">Any</option>
+              <option value="7">Next 7 days</option>
+              <option value="30">Next 30 days</option>
+              <option value="custom">Custom range</option>
+            </select>
+          </label>
+          <label id="closing-from-wrap" hidden>From
+            <input type="date" id="closing_from">
+          </label>
+          <label id="closing-to-wrap" hidden>To
+            <input type="date" id="closing_to">
+          </label>
+          <button id="tender-clear" type="button" class="secondary">Clear</button>
+        </div>
+        <p id="tender-meta" class="muted"></p>
+        <div id="tender-cards" class="tender-cards"></div>
+        <div class="pager">
+          <button id="prev" type="button" class="secondary">Previous</button>
+          <span id="pageinfo"></span>
+          <button id="next" type="button" class="secondary">Next</button>
+        </div>
+      </section>
+      <section id="files" class="panel">
+        <form id="search-form" class="command-search">
+          <label class="command-field">
+            <span class="command-hint">/</span>
+            <input id="query" type="search" placeholder="Search file names and document text" autocomplete="off">
+          </label>
+          <label class="check"><input id="include-expired" type="checkbox"> Include expired</label>
+          <button type="submit">Search</button>
+        </form>
+        <div class="chip-row" id="stage-chips">
+          <button type="button" class="chip active" data-lifecycle="">All stages</button>
+          <button type="button" class="chip" data-lifecycle="open">Open</button>
+          <button type="button" class="chip" data-lifecycle="closing_soon">Closing soon</button>
+          <button type="button" class="chip" data-lifecycle="expired">Expired</button>
+        </div>
+        <div class="chip-row" id="extension-chips"></div>
+        <p id="search-meta" class="muted"></p>
+        <div class="charts" id="search-charts" hidden>
+          <section class="card chart-card">
+            <h3>By stage</h3>
+            <div id="chart-lifecycle" class="bars"></div>
+          </section>
+          <section class="card chart-card">
+            <h3>By file type</h3>
+            <div id="chart-extension" class="bars"></div>
+          </section>
+          <section class="card chart-card">
+            <h3>By organisation</h3>
+            <div id="chart-organisation" class="bars"></div>
+          </section>
+        </div>
+        <div class="search-layout">
+          <div id="results" class="results-list"></div>
+          <aside class="card detail-pane" id="detail-pane">
+            <h2>File detail</h2>
+            <p class="muted">Select a matching file to inspect it.</p>
+          </aside>
+        </div>
+        <div class="pager" id="search-pager" hidden>
+          <button id="search-prev" type="button" class="secondary">Previous</button>
+          <span id="search-pageinfo"></span>
+          <button id="search-next" type="button" class="secondary">Next</button>
+        </div>
+      </section>
+      <section id="usage" class="panel">
+        <div class="usage-stack" id="usage-root">
+          <p class="usage-intro muted">External services and local infrastructure this stack depends on, with live usage where we track it.</p>
+          <div class="dep-grid" id="dep-grid"></div>
+          <section class="usage-table-wrap" id="captcha-wrap">
+            <h3>2Captcha — images by day</h3>
+            <div id="captcha"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<dialog id="corr-dialog" class="corr-dialog">
+  <div class="corr-dialog-head">
+    <div>
+      <h2 id="corr-dialog-title">Corrigendum</h2>
+      <p id="corr-dialog-summary" class="muted"></p>
+    </div>
+    <button type="button" class="secondary" id="corr-dialog-close">Close</button>
+  </div>
+  <div id="corr-dialog-body"></div>
+</dialog>
+<script src="/static/app.js?v=corr-map2"></script>
+</body>
+</html>
