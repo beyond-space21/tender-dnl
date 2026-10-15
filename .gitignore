@@ -1,0 +1,6 @@
+.env
+venv/
+current_captcha.png
+*.zip
+temp/
+TENDERS/
